@@ -76,5 +76,10 @@ def analisis_ventas():
     curso_top = df.groupby("curso")["cantidad"].sum().idxmax()
     print("El curso más vendido es: ", curso_top)
     
-
+    #el que compro mas cursos
+    comprador_top = df.groupby("cliente")["cantidad"].sum().idxmax()
+    print("la persona que mas compro cursos es: ", comprador_top)
+    # Ordenando de forma ascendente
+    ventas_enorden = df.sort_values("fecha", ascending=True)  
+    print(ventas_enorden[["fecha", "cliente", "curso", "cantidad"]].to_string(index=False))
    
